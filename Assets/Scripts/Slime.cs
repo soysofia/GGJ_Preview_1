@@ -44,6 +44,10 @@ public class Slime : MonoBehaviour
     [SerializeField]
     AnimationClip attackClip;
 
+    bool isAttacking = false;
+
+    [SerializeField]
+    int damage = 2;
 
 
     void Awake()
@@ -63,7 +67,7 @@ public class Slime : MonoBehaviour
     IEnumerator IdlingRoutine()
     
     {
-        anim.SetBool("patrol",false);
+        anim.SetFloat("patrol",0f);
         yield return new WaitForSeconds(idlingTime);
         StartPatrolling();
 
@@ -82,15 +86,19 @@ public class Slime : MonoBehaviour
         anim.SetTrigger("attack");
         yield return new WaitForSeconds(attackClip.length);
         StartCoroutine(lastRoutine);
+        isAttacking = false;
     }
 
     IEnumerator PatrolingRoutine()
     {
+        
+        anim.SetFloat("patrol",1f);
 
         while (true) 
         {
-            if(Attack)
+            if(Attack && !isAttacking)
             {
+                isAttacking =true;
                 lastRoutine= patroling;
                 StartAttack();
               yield break;
@@ -129,7 +137,6 @@ public class Slime : MonoBehaviour
     void StartPatrolling()
 
     {  
-        anim.SetBool("patrol", true);
         timer = 0f;
         direction = direction == Vector2.right ? Vector2.left: Vector2.right;
         spr.flipX =FlipSpriteX;
@@ -182,6 +189,10 @@ public class Slime : MonoBehaviour
     }
 
 
+
+    public int GetDamage => damage;
+
+    public  void MakeDamage( )=>  Gamemanager.instance.GetPlayer.Health-=damage;
 
 
 

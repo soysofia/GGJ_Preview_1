@@ -749,7 +749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4434007553058532963, guid: e511fba90cb0e594b82c4f67a40eda73, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4434007553058532963, guid: e511fba90cb0e594b82c4f67a40eda73, type: 3}
       propertyPath: m_SortingLayerID
@@ -3730,7 +3730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41449078543a4d743b7a16ef9880a138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 1.03
   direction: {x: 1, y: 0}
   patrolTimeLimit: 3
   rayDistance: 0.67
@@ -3739,6 +3739,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   rayOrigin: {x: 0, y: 0, z: 0}
+  attackClip: {fileID: 7400000, guid: 39758e0fe1d24234684f1b2472458532, type: 2}
+  damage: 2
 --- !u!58 &1216561427
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3833,7 +3835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4434007553058532963, guid: c05f6e70b1475f044937dfa1e24d3008, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4434007553058532963, guid: c05f6e70b1475f044937dfa1e24d3008, type: 3}
       propertyPath: m_SortingLayerID
@@ -3992,6 +3994,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2431b336bab6e43b84e27cc07ac697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1266055375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266055377}
+  - component: {fileID: 1266055376}
+  m_Layer: 0
+  m_Name: gamemanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1266055376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266055375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b163f8c52c9154784359810c809ebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1266055377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266055375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.033427, y: -1.2703844, z: -130.51843}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1268102958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4428,7 +4473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4434007553058532963, guid: fb52142ed7f9a7c4dab394c3352bc450, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4434007553058532963, guid: fb52142ed7f9a7c4dab394c3352bc450, type: 3}
       propertyPath: m_SortingLayerID
@@ -6619,7 +6664,7 @@ GameObject:
   - component: {fileID: 1624075899}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6645,6 +6690,7 @@ MonoBehaviour:
     m_Bits: 64
   rayOrigin: {x: 0, y: 0, z: 0}
   score: {fileID: 1223423370}
+  health: 20
 --- !u!212 &1624075895
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7082,7 +7128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4434007553058532963, guid: e511fba90cb0e594b82c4f67a40eda73, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4434007553058532963, guid: e511fba90cb0e594b82c4f67a40eda73, type: 3}
       propertyPath: m_SortingLayerID

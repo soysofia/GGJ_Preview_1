@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
 
     Gameinputs gameInputs;
 
-   
+    [SerializeField]
+    int health;
 
     ////////
     void Awake()
@@ -131,5 +132,7 @@ public class Player : MonoBehaviour
         Gizmos.color = rayColor;
         Gizmos.DrawRay(transform.position +  rayOrigin, Vector2.down * rayDistance );
     }
+
+    public int Health{get => health; set => health = health > 0 ? value  : 0;}
 
 }
