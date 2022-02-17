@@ -192,8 +192,14 @@ public class Slime : MonoBehaviour
 
     public int GetDamage => damage;
 
-    public  void MakeDamage( )=>  Gamemanager.instance.GetPlayer.Health-=damage;
+    public  void MakeDamage()
+    {
 
+     Gamemanager.instance.GetPlayer.Health-=damage;
+     Gamemanager.instance.GetHealthBar.UpdateHealth();
+
+
+    }
 
 
 }

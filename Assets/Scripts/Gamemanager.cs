@@ -8,6 +8,10 @@ public class Gamemanager : MonoBehaviour
 
     Player player;
 
+    
+   HealthBar healthBar;
+
+
     void Awake()
     {
 
@@ -31,11 +35,14 @@ public class Gamemanager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+         healthBar = GameObject.FindWithTag("health").GetComponent<HealthBar>();
     }
 
     public Player GetPlayer => player;
 
+    public HealthBar GetHealthBar => healthBar ;
+
 }
 
 
-//47:19
+//8:46
