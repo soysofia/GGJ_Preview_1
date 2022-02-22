@@ -196,6 +196,7 @@ public class Slime : MonoBehaviour
     {
 
      Gamemanager.instance.GetPlayer.Health-=damage;
+     Gamemanager.instance.GetPlayer.RunAnimationDamage();
      Gamemanager.instance.GetHealthBar.UpdateHealth();
 
 
@@ -203,3 +204,6 @@ public class Slime : MonoBehaviour
 
 
 }
+
+
+//19:48

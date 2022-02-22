@@ -29,6 +29,16 @@ public class Player : MonoBehaviour
     [SerializeField]
     int health;
 
+    AudioSource aud;
+    [SerializeField]
+    AudioClip footstepsSFX;
+   
+   float walkTimer = 0f;
+    
+    [SerializeField, Range(0.1f,5f)]
+
+   float walkTimeLimit =1F;
+
     ////////
     void Awake()
     {
@@ -52,6 +62,11 @@ public class Player : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         spr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        aud = GetComponent<AudioSource>();
+
+           walkTimer=walkTimeLimit;
+
+
         gameInputs.Gameplay.Jump.performed+= _ => Jump();
         gameInputs.Gameplay.Jump.canceled+= _ => JumpCanceled();
 
@@ -72,6 +87,24 @@ public class Player : MonoBehaviour
             anim.SetTrigger("jump");
         }*/
        spr.flipX = FlipSprite;
+
+
+       if(ImWalking)
+       {
+         
+        
+            if(walkTimer >=walkTimeLimit)  
+            {
+                walkTimer=0f;
+                aud.PlayOneShot(footstepsSFX, 0.5f);
+            }
+
+         else{
+             walkTimer=walkTimeLimit;
+         }
+
+
+       }
 
      
 
@@ -135,4 +168,14 @@ public class Player : MonoBehaviour
 
     public int Health{get => health; set => health = health > 0 ? value  : 0;}
 
+
+    public void RunAnimationDamage() => anim.SetTrigger("damage");
+
+
+    bool ImWalking => Mathf.Abs(Axis.x) >0f && IsGrounding;
+
 }
+
+
+
+//40:15
